@@ -15,7 +15,7 @@ double[,] CreateMatrixRnd(int row, int col, int min, int max)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            matrix[i, j] = Convert.ToDouble(new Random().Next(-100, 100)) / 10; // для -10;10
+            matrix[i, j] = Convert.ToDouble(new Random().Next(min, max + 1)) / 10; 
             // matrix[i, j] = new Random().Next(min, max + 1);
         }
     }
@@ -38,5 +38,5 @@ void PrintMatrix(double[,] matrix)
     }
 }
 
-double[,] Array2D = CreateMatrixRnd(3, 4, -10, 10);
+double[,] Array2D = CreateMatrixRnd(3, 4, -100, 100); // для -10;10
 PrintMatrix(Array2D);
