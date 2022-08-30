@@ -20,7 +20,6 @@ int[,] CreateMatrixRndInt(int row, int col, int min, int max)
         }
     }
     return matrix;
-
 }
 
 void PrintMatrix(int[,] matrix)
@@ -35,7 +34,20 @@ void PrintMatrix(int[,] matrix)
         }
         Console.WriteLine("]");
     }
+
+    Console.Write("Среднее значение элементов каждой строки: ");
+    //int Num = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        double sum = 0;
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            sum += matrix[i, j];
+            // Num = Math.Round(sum/10) / matrix.GetLength(0);
+        }
+        Console.Write($"{Math.Round(sum) / matrix.GetLength(1)}; ");
+    }
 }
 
-int[,] Array2D = CreateMatrixRndInt(3, 4, -20, 20);
+int[,] Array2D = CreateMatrixRndInt(3, 4, 0, 10);
 PrintMatrix(Array2D);
